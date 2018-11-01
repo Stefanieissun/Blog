@@ -48,37 +48,37 @@ writeConcern：可选，抛出异常的级别。
 等价
 `db.game.update({"_id": 123}, { "$set": {"count": 10000}})`
 
-#####删除字段 
+##### 删除字段 
 `db.collectionDemo.update({name:'Stefanie'},{'$unset:{age:1}'})`
 
-#####删除记录
+##### 删除记录
 `db.collectionDemo.remove({age:12})`
 
 
-#####只有type数组同时存在mongodb和javascript才会匹配
+##### 只有type数组同时存在mongodb和javascript才会匹配
 `db.article.find({"type": {"$all": ["mongodb", "javascript"]}})`
 
-#####限制数组长度  (只有数组的长度是2才会匹配)
+##### 限制数组长度  (只有数组的长度是2才会匹配)
 `db.article.find({"type": {"$size": 2}})`
 
-#####数组
+##### 数组
 `{
  kown: [{ a: 2, b: 4}, 10, { a: 4}, {b:10}]}`
 `db.article.find({"kown": { "$elemMatch": {a: 1, b: {"$gt": 2}}}})`
 
 
-######判断字段是否存在
+##### 判断字段是否存在
 `db.article.find({"love": {"$exists": false}}) // 如果不存在字段love，就返回`
 
 
-######内嵌文档
+##### 内嵌文档
 `{adddress:{name:'nanjing'}}`
 `db.article.find({'address.name':'nanjing'})`
 
 
-######分页效果
+##### 分页效果
 `db.article.find().skip(10).limit(20)`
 
 
-#######删除集合
+##### 删除集合
 `db.article.drop()`
