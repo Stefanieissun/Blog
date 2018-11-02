@@ -82,3 +82,25 @@ writeConcern：可选，抛出异常的级别。
 
 ##### 删除集合
 `db.article.drop()`
+
+
+##### 聚合函数
+`db.documents.insertMany([
+     { name: '菜鸟工具', age: 12, gender: 'F'},
+            { name: 'Google', age: 23, gender: 'M'},
+            { name: 'Facebook', age: 34, gender: 'F'},
+            { name: '张三', age: 26, gender: 'F'},
+            { name: '李四', age: 23, gender: 'M'},
+            { name: '王五', age: 34, gender: 'F'}
+])`
+
+   `                
+            db.documents.aggregate([{
+                    $group:{
+                        _id:'$gender',
+                        totalNum:{$sum:1},
+                         sum:{$sum:'$age'},
+                         avg:{$avg:'$age'},
+                         max:{$max:'$age'},
+                         min:{$min:'$age'}
+                        }`
