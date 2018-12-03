@@ -102,7 +102,7 @@ writeConcern：可选，抛出异常的级别。
 
 ##### 聚合函数
 `db.documents.insertMany([
-     { name: '菜鸟工具', age: 12, gender: 'F'},
+            { name: '菜鸟工具', age: 12, gender: 'F'},
             { name: 'Google', age: 23, gender: 'M'},
             { name: 'Facebook', age: 34, gender: 'F'},
             { name: '张三', age: 26, gender: 'F'},
@@ -127,6 +127,20 @@ writeConcern：可选，抛出异常的级别。
 ##### 取反
 
 `db.article.find({author:{$not:/mongodb/i}})`
+
+
+##### 1、查看集合索引
+
+`db.col.getIndexes()`
+##### 2、查看集合索引大小
+
+`db.col.totalIndexSize()`
+##### 3、删除集合所有索引
+
+`db.col.dropIndexes()`
+##### 4、删除集合指定索引
+
+`db.col.dropIndex("索引名称")`
 
 
 参考 http://ghmagical.com/article/page/id/Bj7qgmJ3CJUE
