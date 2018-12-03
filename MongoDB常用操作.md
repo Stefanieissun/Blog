@@ -19,8 +19,9 @@
 `db.collectionDemo.find({age:{'$gte':15,'$lte':26}})`
 
 ##### like条件 
-`sselect * from article where title like "%mongodb%"`
-`db.collectionDemo.find({title:/mongodb})`
+`select * from article where title like "%mongodb%"`  
+
+`db.collectionDemo.find({title:/mongodb/})`
 
 ##### in条件 
 `db.collectionDemo.find({title:{'$in':['js','java']}})`
@@ -51,8 +52,22 @@ writeConcern：可选，抛出异常的级别。
 ##### 删除字段 
 `db.collectionDemo.update({name:'Stefanie'},{'$unset:{age:1}'})`
 
+##### 一次追加多个元素(追加字段必须是数组。如果数组字段不存在，则自动新增，然后追加著作权归作者所有。)
+`  db.game.update({"_id": 123}, {"$push": {"score": [12,123]}}) `
 ##### 删除记录
 `db.collectionDemo.remove({age:12})`
+
+#### 追加不重复元素（$addToSet）：$addToSet类似集合Set，只有当这个值不在元素内时才增加：
+`db.game.update({"_id": 123}, {"$addToSet": {"score": 123}}
+`
+#### 删除数组元素（$pop）：
+`db.game.update({"_id": 123}, {"$pop": {"score": 1}})  // 删除最后一个元素`
+
+
+`db.game.update({"_id": 123}, {"$pop": {"score": -1}})  // 删除第一个元素`
+
+#### 删除特定元素 （$pull）
+`db.game.update({"_id": 123}, {"$pull": {"score": 123}})  //数组score内值等于123的元素`
 
 
 ##### 只有type数组同时存在mongodb和javascript才会匹配
@@ -64,6 +79,7 @@ writeConcern：可选，抛出异常的级别。
 ##### 数组
 `{
  kown: [{ a: 2, b: 4}, 10, { a: 4}, {b:10}]}`
+
 `db.article.find({"kown": { "$elemMatch": {a: 1, b: {"$gt": 2}}}})`
 
 
@@ -104,3 +120,13 @@ writeConcern：可选，抛出异常的级别。
                          max:{$max:'$age'},
                          min:{$min:'$age'}
                         }`
+
+##### 格式化
+`db.collection.find().pretty()`
+
+##### 取反
+
+`db.article.find({author:{$not:/mongodb/i}})`
+
+
+参考 http://ghmagical.com/article/page/id/Bj7qgmJ3CJUE
