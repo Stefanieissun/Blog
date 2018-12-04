@@ -143,4 +143,11 @@ writeConcern：可选，抛出异常的级别。
 `db.col.dropIndex("索引名称")`
 
 
+#### 备份
+`mongodump -d 数据库名`
+
+
+#### 恢复
+`mongorestore --drop`
+
 参考 http://ghmagical.com/article/page/id/Bj7qgmJ3CJUE
