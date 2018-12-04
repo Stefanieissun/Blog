@@ -4,7 +4,7 @@
 `db.集合名.find()`
 `select * from  集合名`
 
-###投影操作（指定返回name和age字段，不返回_id）
+### 投影操作（指定返回name和age字段，不返回_id）
 `db.collectionDemo.find({},{name:1,age:1,_id:0})`
 
 ### 查询条件
