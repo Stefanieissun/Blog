@@ -60,6 +60,11 @@ writeConcern：可选，抛出异常的级别。
 #### 追加不重复元素（$addToSet）：$addToSet类似集合Set，只有当这个值不在元素内时才增加：
 `db.game.update({"_id": 123}, {"$addToSet": {"score": 123}}
 `
+
+##### 多个批量插入
+`db.test.update({name:'JSPang'},{$addToSet:{interest:{$each:['ha','code','read']}}})`
+
+
 #### 删除数组元素（$pop）：
 `db.game.update({"_id": 123}, {"$pop": {"score": 1}})  // 删除最后一个元素`
 
@@ -70,7 +75,7 @@ writeConcern：可选，抛出异常的级别。
 `db.game.update({"_id": 123}, {"$pull": {"score": 123}})  //数组score内值等于123的元素`
 
 
-##### 只有type数组同时存在mongodb和javascript才会匹配
+##### 只有type数组同时存在mongodb和javascript才会匹配,查找包含'mongodb'和'javascript'的
 `db.article.find({"type": {"$all": ["mongodb", "javascript"]}})`
 
 ##### 限制数组长度  (只有数组的长度是2才会匹配)
@@ -149,5 +154,16 @@ writeConcern：可选，抛出异常的级别。
 
 #### 恢复
 `mongorestore --drop`
+
+
+####  cmd中mongo操作
+输入
+`mongo` 
+`show db`
+`use test`
+`show collections`
+
+
+
 
 参考 http://ghmagical.com/article/page/id/Bj7qgmJ3CJUE
