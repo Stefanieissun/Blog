@@ -1,3 +1,4 @@
+//前端下载
 fetch(`https://b-gold-cdn.xitu.io/v3/static/img/logo.a7995ad.svg`)
     .then(a=>a.blob())
     .then(b=>{
