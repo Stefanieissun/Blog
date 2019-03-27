@@ -89,6 +89,8 @@
 
 `date_format(日期,"%Y%m%d")`
 
+`date_add(now(),interval 1day)`
+
 ### 加密函数
 
 `AES_ENCRYPT(str,key) 返回用密钥 key 对字符串 str 利用高级加密标准算法加密后的结果，调用 AES_ENCRYPT 的结果是一个二进制字符串，以 BLOB 类型存储`
